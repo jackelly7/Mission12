@@ -1,0 +1,39 @@
+# ===== FRONTEND (Node + Vite + TypeScript) =====
+/frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.turbo/
+frontend/.env.local
+frontend/.env.*
+frontend/.DS_Store
+
+# Optional: if you’re storing build artifacts in frontend
+frontend/build/
+
+# ===== BACKEND (.NET + Rider) =====
+/backend/bin/
+/backend/obj/
+/backend/*.user
+/backend/*.suo
+/backend/*.userosscache
+/backend/*.sln.docstates
+backend/.vs/
+backend/.idea/
+
+# ASP.NET secrets (optional, if used)
+**/secrets.json
+
+# Rider logs
+backend/.idea/.idea.log
+backend/.idea/workspace.xml
+
+# ===== SYSTEM/IDE STUFF =====
+*.log
+*.swp
+.DS_Store
+Thumbs.db
+.env
+*.tmp
+.vscode/
+.idea/
+*.iml
