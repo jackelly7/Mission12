@@ -15,8 +15,12 @@ public class BookController : Controller
     }
 
     [HttpGet("AllBooks")]
-    public IEnumerable<Book> GetBooks()
+    public IEnumerable<Book> GetBooks(int items = 10)
     {
-        return _context.Books.ToList();
+        var books = _context.Books
+            .Take(items)
+            .ToList();
+        
+        return books;
     }
 }

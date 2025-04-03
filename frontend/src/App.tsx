@@ -4,7 +4,6 @@ import BookList from './BookList';
 function App() {
   return (
     <>
-      <h1>Hello World</h1>
       <BookList />
     </>
   );
