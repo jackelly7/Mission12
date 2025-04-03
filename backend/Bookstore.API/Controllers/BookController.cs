@@ -39,5 +39,16 @@ public class BookController : Controller
             total = totalBooks
         });
     }
+
+    [HttpGet("GetBookTypes")]
+    public IActionResult GetBookTypes()
+    {
+        var bookTypes = _context.Books
+            .Select(b => b.Category)
+            .Distinct()
+            .ToList();
+        
+        return Ok(bookTypes);
+    }
     
 }

@@ -56,6 +56,10 @@ function BookList() {
                 {b.classification}
               </li>
               <li>
+                <strong>Category: </strong>
+                {b.category}
+              </li>
+              <li>
                 <strong>Page Count: </strong>
                 {b.pageCount}
               </li>
