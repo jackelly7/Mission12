@@ -23,7 +23,7 @@ function BookList() {
   }, [pageNum, items, totalItems, sortAsc]);
   return (
     <>
-      <h1>Jack's Books</h1>
+      <h1>Jack's Bookstore</h1>
       <br />
       <button
         onClick={() => {
