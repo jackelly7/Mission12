@@ -37,3 +37,8 @@ Thumbs.db
 .vscode/
 .idea/
 *.iml
+
+
+# Ignore all bin and obj folders recursively
+**/bin/
+**/obj/

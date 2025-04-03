@@ -15,12 +15,19 @@ public class BookController : Controller
     }
 
     [HttpGet("AllBooks")]
-    public IEnumerable<Book> GetBooks(int items = 10)
+    public IActionResult GetBooks(int pageNum = 1, int items = 10)
     {
         var books = _context.Books
+            .Skip((pageNum - 1) * items)
             .Take(items)
             .ToList();
         
-        return books;
+        var totalBooks = _context.Books.Count();
+
+        return Ok(new
+        {
+            books = books,
+            total = totalBooks
+        });
     }
 }

@@ -4,17 +4,22 @@ import { Book } from './types/Book';
 function BookList() {
   const [books, setBooks] = useState<Book[]>([]);
   const [items, setItems] = useState<number>(10);
+  const [pageNum, setPageNum] = useState<number>(1);
+  const [totalItems, setTotalItems] = useState<number>(0);
+  const [totalPages, setTotalPages] = useState<number>(0);
 
   useEffect(() => {
     const fetchBooks = async () => {
       const response = await fetch(
-        `https://localhost:5000/Book/AllBooks?items=${items}`
+        `https://localhost:5000/Book/AllBooks?pageNum=${pageNum}&items=${items}`
       );
       const data = await response.json();
-      setBooks(data);
+      setBooks(data.books);
+      setTotalItems(data.total);
+      setTotalPages(Math.ceil(totalItems / items));
     };
     fetchBooks();
-  }, [items]);
+  }, [pageNum, items, totalItems]);
   return (
     <>
       <h1>Jack's Books</h1>
@@ -51,6 +56,17 @@ function BookList() {
           </div>
         </div>
       ))}
+
+      <br />
+      <button onClick={() => setPageNum(pageNum - 1)}>Previous</button>
+
+      {[...Array(totalPages)].map((_, i) => (
+        <button key={i + 1} onClick={() => setPageNum(i + 1)}>
+          {i + 1}
+        </button>
+      ))}
+
+      <button onClick={() => setPageNum(pageNum + 1)}>Next</button>
 
       <br />
       <label>
